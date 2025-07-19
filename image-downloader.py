@@ -1,8 +1,9 @@
 import requests
+import sys
 
-img_url = "https://www.autodesk.com/blogs/autocad/wp-content/uploads/sites/35/2020/08/How-to-create-a-block-in-AutoCAD-1536x830-1-scaled.jpg"
-
+img_url = sys.argv[1]
+file_name = sys.argv[2]
 r = requests.get(img_url)
 
-with open("downloaded-image.jpg", "wb") as f:
+with open(file_name, "wb") as f:
     f.write(r.content)
