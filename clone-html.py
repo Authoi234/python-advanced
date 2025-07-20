@@ -1,14 +1,13 @@
-import requests
-import os
-import webbrowser as wb
+import requests, os, webbrowser as wb
 
-url = "https://www.jhankarmahbub.com/"
+url = input("Please enter url ", ) or "https://www.jhankarmahbub.com/"
+name = input("Please enter file name (with .html) ", ) or "jhankar-mahbub-clone.html"
 
 response = requests.get(url)
 
-with open("jhankar-mahbub-clone.html", "w", encoding=response.encoding) as f:
+with open(name, "w", encoding=response.encoding) as f:
     f.write(response.text)
 
-file_path = os.path.realpath("jhankar-mahbub-clone.html")
+file_path = os.path.realpath(name)
 print(file_path)
 wb.open("file://"+file_path)
