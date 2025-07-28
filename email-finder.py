@@ -4,4 +4,6 @@ text="To ask about books, please email at, book at sovietbooks [dot] com . Pleas
 
 text = re.sub(r'\s+[\(\[]*\s*at\s*[\)\]]*\s+', "@", text, flags=re.I)
 
+text = re.sub(r'\s*[\(\[]*\s*dot\s*[\)\]]*\s*', ".", text, flags=re.I)
+
 print(text)
