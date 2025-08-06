@@ -37,7 +37,7 @@ if __name__ == "__main__":
     q.enqueue("hamba")
     q.enqueue("lamba")
     q.enqueue("tamba")
-    q.enqueue("damba")
+    q.enqueue("damba") 
     while not q.is_empty():
         person = q.dequeue()
         print("person",person)
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     q.enqueue("lamba")
     print(q.items)
     print("head:", q.head)
-    print("tail:", q.tail)
+    print("tail:", q.tail) 
