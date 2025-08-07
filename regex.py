@@ -1,4 +1,4 @@
-import re
+# import re
 
 # s = "Saudi Arabia, Iran, Iraq, Palestine, Yemen, Russia, China, Greenland, Pakistan, Bangladesh, United Arab Amirates, United States of America, United Kingdom, Afganistan, Turkmenistan, Kazakhstan ,Kyrgyzstan, Mongolia , Tajikistan, Uzbekistan, Turkey, France, Iceland, Swizerland, Sweden, Thailand, New Zealand, Netherlands,Finland, Ireland, Poland, Wakanda"
 
