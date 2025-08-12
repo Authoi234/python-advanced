@@ -38,6 +38,77 @@ def build_max_heap(heap):
     for i in range(heap_size // 2, 0, -1):
         max_heapify(heap, heap_size, i)
 
+def get_maximum(heap):
+    return heap[1]
+
+def extract_max(heap, heap_size):
+    max_item = heap[1]
+    heap[1] = heap[heap_size]
+    heap_size -= 1
+    max_heapify(heap, heap_size, 1)
+    return max_item
+
+def insert_node(heap, heap_size, node):
+    heap_size += 1
+    heap[heap_size] = node
+    i = heap_size
+
+    while i > 1 and heap[i] > heap[parent(i)]:
+        heap[parent(i)], heap[i] = heap[i], heap[parent(i)]
+        i = parent(i)
+    
+    return heap_size
+
+def increase_key(heap, i, new_value):
+    if new_value < heap[i]:
+        print("New value is smaller than current value")
+        return
+    
+    heap[i] = new_value
+    while i > 1 and heap[i // 2] < heap[i]:
+        heap[i], heap[i // 2] = heap[i // 2], heap[i]
+        i = i // 2
+
+def get_minimum(heap):
+    heap_size = len(heap) - 1
+    start = heap_size // 2 + 1
+    min_val = heap[start]
+    for i in range(start + 1, heap_size + 1):
+        if heap[i] < min_val:
+            min_val = heap[i]
+    return min_val
+
+def extract_min(heap, heap_size):
+    start = heap_size // 2 + 1
+    min_index = start
+    for i in range(start + 1, heap_size + 1):
+        if heap[i] < heap[min_index]:
+            min_index = i
+
+    min_val = heap[min_index]
+
+    heap[min_index] = heap[heap_size]
+    heap_size -= 1
+
+    i = min_index
+    while i > 1 and heap[i] > heap[parent(i)]:
+        heap[i], heap[parent(i)] = heap[parent(i)], heap[i]
+        i //= 2
+
+    return min_val, heap_size
+
+def insert_node_min(heap, heap_size, node):
+    heap_size += 1 
+    heap[heap_size] = node
+    i = heap_size
+
+    while i > 1 and heap[i] < heap[parent(i)]:
+        heap[i], heap[parent(i)] = heap[parent(i)], heap[i]
+        i = parent(i)
+    
+    return heap_size
+
+
 def heap_sort(heap):
     build_max_heap(heap)
     heap_size = len(heap) - 1
@@ -51,10 +122,4 @@ def heap_sort(heap):
 if __name__ == "__main__":
     heap = [None, 12, 7, 1, 3, 10, 17, 19, 2, 5]
 
-    print("Before building heap:")
-    print(build(heap[1:]))
-
-    heap_sort(heap)
-
-    print("After building heap:")
-    print(build(heap[1:]))
+    build_max_heap(heap)
