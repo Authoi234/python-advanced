@@ -1,0 +1,11 @@
+L = [3,4,1,6,2,4,9,7,8,4,2,1]
+
+count = [0] * (len(L) + 1)
+
+for x in L:
+    count[x] = count[x] + 1
+
+sorted_list = []
+for index, value in enumerate(count):
+    if value > 0:
+        sorted_list.extend([index] * value)
