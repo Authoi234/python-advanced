@@ -9,3 +9,5 @@ sorted_list = []
 for index, value in enumerate(count):
     if value > 0:
         sorted_list.extend([index] * value)
+
+print(sorted_list)
